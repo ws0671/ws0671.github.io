@@ -23,16 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"ws0671.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="ws0671의 개발 블로그">
-<meta property="og:url" content="https://ws0671.github.io/archives/2021/index.html">
+<meta name="description" content="map, filter, reduce , isinstance 함수에 대해서 배웠다. 몇몇 헷갈리는 개념을 정리해놔야겠다. 그리고 class에 관해서 조금 배웠는데 다음 수업이 더 본격적인 내용이 될거같다. 오늘 처음으로 live coding을 학원에서 하였다. 앞에 나가서 코딩하면 긴장이 되어 문제해결이 더 힘들것같다. 평소에 꾸준히 복습하고 과제를 충분히">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20210205 TIL">
+<meta property="og:url" content="https://ws0671.github.io/2021/02/06/20210205til/index.html">
 <meta property="og:site_name" content="ws0671의 개발 블로그">
+<meta property="og:description" content="map, filter, reduce , isinstance 함수에 대해서 배웠다. 몇몇 헷갈리는 개념을 정리해놔야겠다. 그리고 class에 관해서 조금 배웠는데 다음 수업이 더 본격적인 내용이 될거같다. 오늘 처음으로 live coding을 학원에서 하였다. 앞에 나가서 코딩하면 긴장이 되어 문제해결이 더 힘들것같다. 평소에 꾸준히 복습하고 과제를 충분히">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-06T09:47:13.000Z">
+<meta property="article:modified_time" content="2021-02-06T09:52:27.489Z">
 <meta property="article:author" content="ws0671">
+<meta property="article:tag" content="TIL">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ws0671.github.io/archives/2021/">
+<link rel="canonical" href="https://ws0671.github.io/2021/02/06/20210205til/">
 
 
 <script class="page-configurations">
@@ -40,11 +45,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
-<title>Archive | ws0671의 개발 블로그</title>
+<title>20210205 TIL | ws0671의 개발 블로그</title>
   
 
 
@@ -188,149 +193,87 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 6 posts in total. Keep on posting.</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ws0671.github.io/2021/02/06/20210205til/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ws0671">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ws0671의 개발 블로그">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20210205 TIL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="Created: 2021-02-06 18:47:13 / Modified: 18:52:27" itemprop="dateCreated datePublished" datetime="2021-02-06T18:47:13+09:00">2021-02-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>map, filter, reduce , isinstance 함수에 대해서 배웠다. 몇몇 헷갈리는 개념을 정리해놔야겠다. 그리고 class에 관해서 조금 배웠는데 다음 수업이 더 본격적인 내용이 될거같다. 오늘 처음으로 live coding을 학원에서 하였다. 앞에 나가서 코딩하면 긴장이 되어 문제해결이 더 힘들것같다. 평소에 꾸준히 복습하고 과제를 충분히 숙지해놔야겠다.</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-06T18:47:13+09:00"
-              content="2021-02-06">
-          02-06
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/06/20210205til/" itemprop="url">
-            <span itemprop="name">20210205 TIL</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TIL/" rel="tag"># TIL</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/02/01/20210201til/" rel="prev" title="20210201 TIL">
+                  <i class="fa fa-chevron-left"></i> 20210201 TIL
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-02-01T18:37:11+09:00"
-              content="2021-02-01">
-          02-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/01/20210201til/" itemprop="url">
-            <span itemprop="name">20210201 TIL</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-01-29T19:30:00+09:00"
-              content="2021-01-29">
-          01-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/29/20210129til/" itemprop="url">
-            <span itemprop="name">20210129 TIL</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-01-27T22:43:44+09:00"
-              content="2021-01-27">
-          01-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/27/20210127til/" itemprop="url">
-            <span itemprop="name">20210127 TIL</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-01-25T22:01:49+09:00"
-              content="2021-01-25">
-          01-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/25/20210125til/" itemprop="url">
-            <span itemprop="name">20210125 TIL</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-01-22T17:02:06+09:00"
-              content="2021-01-22">
-          01-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/22/20210123til/" itemprop="url">
-            <span itemprop="name">20210123 TIL</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 
 <script>
