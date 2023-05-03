@@ -3,6 +3,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Link, graphql, PageProps } from "gatsby";
 
 export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
+  console.log(data.allMdx.nodes);
+
   return (
     <div>
       <div className="mx-[150px] text-2xl">
@@ -39,15 +41,21 @@ export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
         </div>
       </div>
       <main className="m-auto flex w-[80%]">
-        <div className="h-[100vh] w-[20%] bg-blue-300"></div>
-        <div className="h-[100vh] w-[80%] bg-yellow-300">
+        <div className=" w-[20%] "></div>
+        <div className=" w-[80%] border-l border-black pl-10">
           {data.allMdx.nodes.map((file) => (
-            <Link to={`/blog/${file.frontmatter?.slug}`}>
-              <div key={file.id}>
-                <div>{file.frontmatter?.date}</div>
-                <div>{file.frontmatter?.title}</div>
+            <div className="mb-10" key={file.id}>
+              <div className="text-gray-400">{file.frontmatter?.date}</div>
+              <div className="mb-6  text-4xl ">
+                <Link
+                  className="border-black hover:border-b"
+                  to={`/blog/${file.frontmatter?.slug}`}
+                >
+                  {file.frontmatter?.title}
+                </Link>
               </div>
-            </Link>
+              <div className="text-xl">{file.excerpt}</div>
+            </div>
           ))}
         </div>
       </main>
@@ -57,8 +65,9 @@ export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
 
 export const query = graphql`
   query BlogPosts {
-    allMdx {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
+        excerpt(pruneLength: 10)
         frontmatter {
           title
           category
