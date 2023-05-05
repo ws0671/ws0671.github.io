@@ -9,7 +9,7 @@ export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
   return (
     <div>
       <Layout>
-        <main className="m-auto mt-[100px] flex w-[80%]">
+        <main className="m-auto flex w-[80%]">
           <div className=" relative w-[20%] after:absolute after:right-0 after:after:block after:h-[540px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-['']"></div>
           <div className=" w-[80%] pl-10">
             {data.allMdx.nodes.map((file) => (

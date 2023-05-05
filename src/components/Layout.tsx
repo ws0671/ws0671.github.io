@@ -9,7 +9,7 @@ interface ILayoutProps {
 export default function Layout({ children }: ILayoutProps) {
   return (
     <div>
-      <div className="fixed top-0 w-full bg-white/50 px-[150px] text-2xl backdrop-blur-sm">
+      <div className="sticky top-0 w-full bg-white/50 px-[150px] text-2xl backdrop-blur-sm">
         <div className="flex justify-between p-5">
           <div>
             <span className="mr-5">
@@ -37,18 +37,22 @@ export default function Layout({ children }: ILayoutProps) {
           </Link>
           <div className="flex items-center">
             <div className="mr-5">
-              <StaticImage
-                height={40}
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="Github logo"
-              />
+              <Link to="https://github.com/ws0671" target="_blank">
+                <StaticImage
+                  height={40}
+                  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  alt="Github logo"
+                />
+              </Link>
             </div>
             <div>
-              <StaticImage
-                height={30}
-                src="https://cdn-icons-png.flaticon.com/512/666/666162.png"
-                alt="mail logo"
-              ></StaticImage>
+              <Link to="mailto:wscan0671@gmail.com">
+                <StaticImage
+                  height={30}
+                  src="https://cdn-icons-png.flaticon.com/512/666/666162.png"
+                  alt="mail logo"
+                ></StaticImage>
+              </Link>
             </div>
           </div>
         </div>
