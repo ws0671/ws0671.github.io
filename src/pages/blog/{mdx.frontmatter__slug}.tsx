@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../../components/Layout";
+
 interface IBlogPostProps {
   data: Queries.PostDetailQuery;
   children: any;
@@ -8,13 +10,15 @@ interface IBlogPostProps {
 
 export default function BlogPost({ data, children }: IBlogPostProps) {
   return (
-    <main className="mx-auto mt-20 w-[80vw]">
-      <h1 className="text-6xl font-bold">{data.mdx?.frontmatter?.title}</h1>
-      <h3 className="mt-10 text-lg text-gray-400">
-        {data.mdx?.frontmatter?.date}
-      </h3>
-      <article className="prose mt-10 max-w-none">{children}</article>
-    </main>
+    <Layout>
+      <main className="mx-auto mt-[100px] w-[80vw]">
+        <h1 className="text-6xl font-bold">{data.mdx?.frontmatter?.title}</h1>
+        <h3 className="mt-10 text-lg text-gray-400">
+          {data.mdx?.frontmatter?.date}
+        </h3>
+        <article className="prose mt-10 max-w-none">{children}</article>
+      </main>
+    </Layout>
   );
 }
 export const query = graphql`

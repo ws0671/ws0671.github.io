@@ -2,10 +2,14 @@ import { Link } from "gatsby";
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
-export default function Layout({ children }) {
+interface ILayoutProps {
+  children: any;
+}
+
+export default function Layout({ children }: ILayoutProps) {
   return (
     <div>
-      <div className="mx-[150px] text-2xl">
+      <div className="fixed top-0 w-full px-[150px] text-2xl">
         <div className="flex justify-between p-5">
           <div>
             <span className="mr-5">
@@ -19,16 +23,18 @@ export default function Layout({ children }) {
               </Link>
             </span>
           </div>
-          <div className="flex">
-            <div className="mr-5 h-10 w-10">
-              <StaticImage
-                className="rounded-full"
-                src="../images/sheep_ttoja.png"
-                alt="profile"
-              />
+          <Link to="/">
+            <div className="flex">
+              <div className="mr-5 h-10 w-10">
+                <StaticImage
+                  className="rounded-full"
+                  src="../images/sheep_ttoja.png"
+                  alt="profile"
+                />
+              </div>
+              <span>Lee young min</span>
             </div>
-            <span>Lee young min</span>
-          </div>
+          </Link>
           <div className="flex items-center">
             <div className="mr-5">
               <StaticImage
