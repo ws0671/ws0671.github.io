@@ -9,7 +9,7 @@ interface ILayoutProps {
 export default function Layout({ children }: ILayoutProps) {
   return (
     <div>
-      <div className="fixed top-0 w-full px-[150px] text-2xl">
+      <div className="fixed top-0 w-full bg-white/50 px-[150px] text-2xl backdrop-blur-sm">
         <div className="flex justify-between p-5">
           <div>
             <span className="mr-5">
