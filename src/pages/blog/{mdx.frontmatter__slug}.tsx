@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout";
+import Seo from "../../components/Seo";
 import { useEffect } from "react";
 
 interface IBlogPostProps {
@@ -17,7 +18,9 @@ export default function BlogPost({ data, children }: IBlogPostProps) {
         <h3 className="mt-10 text-lg text-gray-400">
           {data.mdx?.frontmatter?.date}
         </h3>
-        <article className="prose-xl mt-10 max-w-none">{children}</article>
+        <article className="prose prose-xl mt-10 max-w-none">
+          {children}
+        </article>
       </main>
     </Layout>
   );
@@ -37,3 +40,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }: IBlogPostProps) => (
+  <Seo title={data.mdx?.frontmatter?.title!} />
+);

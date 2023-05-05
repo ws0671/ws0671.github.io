@@ -1,11 +1,10 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link, graphql, PageProps } from "gatsby";
+import Seo from "../components/Seo";
 import Layout from "../components/Layout";
 
 export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
-  console.log(data.allMdx.nodes);
-
   return (
     <div>
       <Layout>
@@ -51,3 +50,5 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <Seo title="Blog" />;
