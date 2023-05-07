@@ -31,7 +31,7 @@ export const query = graphql`
       body
       frontmatter {
         author
-        category
+        tags
         headerImage
         date
         title
