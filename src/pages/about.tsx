@@ -1,14 +1,14 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
-import Tags from "../components/Tag";
+import Tag from "../components/Tag";
 
 export default function About() {
   return (
     <Layout>
       <main className="m-auto flex w-[80%]">
         <div className="relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-['']">
-          <Tags />
+          <Tag />
         </div>
 
         <div className=" w-[80%] pl-10">

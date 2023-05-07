@@ -2,6 +2,7 @@ import React from "react";
 import { Link, graphql, PageProps } from "gatsby";
 import Layout from "../components/Layout";
 import Tag from "../components/Tag";
+import Seo from "../components/Seo";
 
 export default function Tags({
   pageContext,
@@ -20,7 +21,13 @@ export default function Tags({
             <h1 className="mb-10 text-6xl font-bold">{tag}</h1>
             {data.allMdx.nodes.map((file) => (
               <div className="mb-10" key={file.id}>
-                <div className="text-gray-400">{file.frontmatter?.date}</div>
+                <div className="font-bold text-gray-400">
+                  {file.frontmatter?.date}{" "}
+                  <span className="ml-1 font-bold text-blue-500">
+                    {file.frontmatter?.tags?.toUpperCase()}
+                  </span>
+                </div>
+
                 <div className="mb-6 text-4xl font-bold ">
                   <Link
                     className="border-black hover:border-b"
@@ -51,7 +58,7 @@ export const pageQuery = graphql`
         frontmatter {
           title
           tags
-          date
+          date(formatString: "YYYY.MM.DD")
           author
           slug
           headerImage
@@ -61,3 +68,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ pageContext }) => (
+  <Seo title={`Tagged as "${pageContext.tag}"`} />
+);

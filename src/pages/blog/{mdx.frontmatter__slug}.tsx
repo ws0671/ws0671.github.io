@@ -33,7 +33,7 @@ export const query = graphql`
         author
         tags
         headerImage
-        date
+        date(formatString: "YYYY.MM.DD")
         title
         slug
       }

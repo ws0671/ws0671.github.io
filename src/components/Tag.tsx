@@ -3,8 +3,8 @@ import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 
 export default function Tag() {
-  const data = useStaticQuery<Queries.BlogPostsQuery>(graphql`
-    query BlogPosts {
+  const data = useStaticQuery<Queries.BlogTagsQuery>(graphql`
+    query BlogTags {
       allMdx(sort: { frontmatter: { date: DESC } }) {
         group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
