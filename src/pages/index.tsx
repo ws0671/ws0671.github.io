@@ -5,8 +5,13 @@ import Seo from "../components/Seo";
 import Layout from "../components/Layout";
 import kebabCase from "lodash/kebabCase";
 import Tag from "../components/Tag";
+import Pagination from "../components/Pagination";
 
 export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
+  const posts = data.allMdx.nodes;
+  const postsPerPage = 6;
+  const numPages = Math.ceil(posts.length / postsPerPage);
+  const currentPage = 1;
   return (
     <Layout>
       <main className="m-auto flex w-[80%]">
@@ -14,25 +19,28 @@ export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
           <Tag />
         </div>
         <div className="w-[80%] pl-10">
-          {data.allMdx.nodes.map((file) => (
-            <div className="mb-10" key={file.id}>
-              <div className=" font-bold text-gray-400">
-                {file.frontmatter?.date}{" "}
-                <span className="ml-1 font-bold text-blue-500">
-                  {file.frontmatter?.tags?.toUpperCase()}
-                </span>
+          {data.allMdx.nodes
+            .map((file) => (
+              <div className="mb-10" key={file.id}>
+                <div className=" font-bold text-gray-400">
+                  {file.frontmatter?.date}{" "}
+                  <span className="ml-1 font-bold text-blue-500">
+                    {file.frontmatter?.tags?.toUpperCase()}
+                  </span>
+                </div>
+                <div className="mb-6 text-4xl font-bold ">
+                  <Link
+                    className="border-black hover:border-b"
+                    to={`/blog/${file.frontmatter?.slug}`}
+                  >
+                    {file.frontmatter?.title}
+                  </Link>
+                </div>
+                <div className="text-xl">{file.excerpt}</div>
               </div>
-              <div className="mb-6 text-4xl font-bold ">
-                <Link
-                  className="border-black hover:border-b"
-                  to={`/blog/${file.frontmatter?.slug}`}
-                >
-                  {file.frontmatter?.title}
-                </Link>
-              </div>
-              <div className="text-xl">{file.excerpt}</div>
-            </div>
-          ))}
+            ))
+            .slice(0, 6)}
+          <Pagination currentPage={currentPage} numPages={numPages} />
         </div>
       </main>
     </Layout>

@@ -27,6 +27,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/blog-posts`,
       },
     },
+
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/sheep_ttoja.png`,
+      },
+    },
   ],
 };
 

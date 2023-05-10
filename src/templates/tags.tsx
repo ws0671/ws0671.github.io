@@ -4,10 +4,14 @@ import Layout from "../components/Layout";
 import Tag from "../components/Tag";
 import Seo from "../components/Seo";
 
+interface IBlogTagsTemplateProps {
+  data: Queries.BlogTagsTemplateQuery;
+  tag: string;
+}
 export default function Tags({
   pageContext,
   data,
-}: PageProps<Queries.BlogPostsQuery>) {
+}: PageProps<IBlogTagsTemplateProps>) {
   const { tag } = pageContext;
 
   return (
@@ -46,7 +50,7 @@ export default function Tags({
   );
 }
 export const pageQuery = graphql`
-  query BlogPosts($tag: String) {
+  query BlogTagsTemplate($tag: String) {
     allMdx(
       limit: 2000
       sort: { frontmatter: { date: DESC } }
