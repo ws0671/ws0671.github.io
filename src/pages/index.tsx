@@ -7,7 +7,7 @@ import kebabCase from "lodash/kebabCase";
 import Tag from "../components/Tag";
 import Pagination from "../components/Pagination";
 
-export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
+export default function IndexPage({ data,location }: PageProps<Queries.BlogPostsQuery>) {
   const posts = data.allMdx.nodes;
   const postsPerPage = 6;
   const numPages = Math.ceil(posts.length / postsPerPage);
@@ -40,7 +40,7 @@ export default function IndexPage({ data }: PageProps<Queries.BlogPostsQuery>) {
               </div>
             ))
             .slice(0, 6)}
-          <Pagination currentPage={currentPage} numPages={numPages} />
+          <Pagination location={location} currentPage={currentPage} numPages={numPages} />
         </div>
       </main>
     </Layout>

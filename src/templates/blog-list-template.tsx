@@ -6,6 +6,7 @@ import Pagination from "../components/Pagination";
 export default function BlogList({
   data,
   pageContext,
+  location,
 }: PageProps<Queries.BlogListQuery>) {
   const { currentPage, numPages } = pageContext;
   console.log(pageContext);
@@ -36,7 +37,11 @@ export default function BlogList({
               <div className="text-xl">{file.excerpt}</div>
             </div>
           ))}
-          <Pagination currentPage={currentPage} numPages={numPages} />
+          <Pagination
+            location={location}
+            currentPage={currentPage}
+            numPages={numPages}
+          />
         </div>
       </main>
     </Layout>

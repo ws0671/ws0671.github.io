@@ -1,13 +1,26 @@
 import React from "react";
 import { Link } from "gatsby";
 
-export default function Pagination({ currentPage, numPages }) {
+interface IPaginationProps {
+  currentPage: number;
+  numPages: number;
+}
+
+export default function Pagination({
+  currentPage,
+  numPages,
+  location,
+}: IPaginationProps) {
+  console.log(location);
+  const urlNumber = +location.pathname.slice(-2, -1);
+  console.log(urlNumber);
+
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
   const prevPage = currentPage - 1 === 1 ? "/" : `/page/${currentPage - 1}`;
   const nextPage = `/page/${currentPage + 1}`;
   return (
-    <div>
+    <div className="flex items-center space-x-3 text-3xl text-gray-500 ">
       {/* 이전 페이지 링크 */}
       {!isFirst && (
         <Link to={prevPage}>
@@ -17,7 +30,7 @@ export default function Pagination({ currentPage, numPages }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="inline-block h-6 w-6"
+            className=" h-6 w-6 hover:text-blue-500"
           >
             <path
               strokeLinecap="round"
@@ -30,7 +43,17 @@ export default function Pagination({ currentPage, numPages }) {
 
       {/* 페이지 번호 표시 */}
       {Array.from({ length: numPages }, (_, i) => (
-        <Link key={`page-${i + 1}`} to={`/page/${i === 0 ? "" : i + 1}`}>
+        <Link
+          className={`${
+            urlNumber === i + 1 ? "border-b border-black text-blue-500" : ""
+          }${
+            urlNumber === 0 && urlNumber === i
+              ? "border-b border-black text-blue-500"
+              : ""
+          } hover:border-b hover:border-black hover:text-blue-500`}
+          key={`page-${i + 1}`}
+          to={`${i === 0 ? "/" : `/page/${i + 1}`}`}
+        >
           {i + 1}
         </Link>
       ))}
@@ -43,7 +66,7 @@ export default function Pagination({ currentPage, numPages }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="inline-block h-6 w-6"
+            className=" h-6 w-6 hover:text-blue-500"
           >
             <path
               strokeLinecap="round"
