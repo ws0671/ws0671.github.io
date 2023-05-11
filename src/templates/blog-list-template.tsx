@@ -9,7 +9,6 @@ export default function BlogList({
   location,
 }: PageProps<Queries.BlogListQuery>) {
   const { currentPage, numPages } = pageContext;
-  console.log(pageContext);
 
   return (
     <Layout>

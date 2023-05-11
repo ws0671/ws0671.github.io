@@ -3,6 +3,7 @@ import { Link, graphql, PageProps } from "gatsby";
 import Layout from "../components/Layout";
 import Tag from "../components/Tag";
 import Seo from "../components/Seo";
+import Pagination from "../components/Pagination";
 
 interface IBlogTagsTemplateProps {
   data: Queries.BlogTagsTemplateQuery;
@@ -11,8 +12,9 @@ interface IBlogTagsTemplateProps {
 export default function Tags({
   pageContext,
   data,
+  location,
 }: PageProps<IBlogTagsTemplateProps>) {
-  const { tag } = pageContext;
+  const { tag, currentPage, numPages } = pageContext;
 
   return (
     <div>
@@ -43,6 +45,11 @@ export default function Tags({
                 <div className="text-xl">{file.excerpt}</div>
               </div>
             ))}
+            <Pagination
+              location={location}
+              currentPage={currentPage}
+              numPages={numPages}
+            />
           </div>
         </main>
       </Layout>
@@ -50,10 +57,11 @@ export default function Tags({
   );
 }
 export const pageQuery = graphql`
-  query BlogTagsTemplate($tag: String) {
+  query BlogTagsTemplate($tag: String, $skip: Int!, $limit: Int!) {
     allMdx(
-      limit: 2000
       sort: { frontmatter: { date: DESC } }
+      limit: $limit
+      skip: $skip
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount

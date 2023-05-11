@@ -12,13 +12,18 @@ export default function Pagination({
   location,
 }: IPaginationProps) {
   console.log(location);
-  const urlNumber = +location.pathname.slice(-2, -1);
+  const urlNumber = +location.pathname.slice(-2, -1) || 0;
   console.log(urlNumber);
 
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? "/" : `/page/${currentPage - 1}`;
-  const nextPage = `/page/${currentPage + 1}`;
+  const prevPage =
+    currentPage - 1 === 1
+      ? `${location.pathname.split("page")[0]}`
+      : `${location.pathname.split("page")[0]}page/${currentPage - 1}`;
+  const nextPage = `${location.pathname.split("page")[0]}page/${
+    currentPage + 1
+  }`;
   return (
     <div className="flex items-center space-x-3 text-3xl text-gray-500 ">
       {/* 이전 페이지 링크 */}
@@ -47,12 +52,16 @@ export default function Pagination({
           className={`${
             urlNumber === i + 1 ? "border-b border-black text-blue-500" : ""
           }${
-            urlNumber === 0 && urlNumber === i
+            !urlNumber && urlNumber === i
               ? "border-b border-black text-blue-500"
               : ""
           } hover:border-b hover:border-black hover:text-blue-500`}
           key={`page-${i + 1}`}
-          to={`${i === 0 ? "/" : `/page/${i + 1}`}`}
+          to={`${
+            i === 0
+              ? `${location.pathname.split("page")[0]}`
+              : `${location.pathname.split("page")[0]}page/${i + 1}`
+          }`}
         >
           {i + 1}
         </Link>

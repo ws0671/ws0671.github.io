@@ -22,6 +22,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       tagsGroup: allMdx(limit: 2000) {
         group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
+          totalCount
         }
       }
     }
@@ -55,14 +56,38 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Extract tag data from query
   const tags = result.data.tagsGroup.group;
 
-  // Make tag pages
+  // // Make tag pages
+  // tags.forEach((tag) => {
+  //   createPage({
+  //     path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+  //     component: tagTemplate,
+  //     context: {
+  //       tag: tag.fieldValue,
+  //     },
+  //   });
+  // });
+
+  //Create tag-list pages
   tags.forEach((tag) => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
-      },
+    const posts = tag.totalCount;
+    const postsPerPage = 6;
+    const numPages = Math.ceil(posts / postsPerPage);
+    Array.from({ length: numPages }).forEach((item, i) => {
+      const firstPage = i === 0;
+      const currentPage = i + 1;
+      createPage({
+        path: firstPage
+          ? `/tags/${_.kebabCase(tag.fieldValue)}/`
+          : `/tags/${_.kebabCase(tag.fieldValue)}/page/${currentPage}`,
+        component: tagTemplate,
+        context: {
+          tag: tag.fieldValue,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      });
     });
   });
 };
