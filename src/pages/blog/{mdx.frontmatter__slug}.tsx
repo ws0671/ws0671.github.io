@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/Layout";
 import Seo from "../../components/Seo";
-import { useEffect } from "react";
+import Comment from "../../components/Comment";
 
 interface IBlogPostProps {
   data: Queries.PostDetailQuery;
@@ -21,6 +21,7 @@ export default function BlogPost({ data, children }: IBlogPostProps) {
         <article className="prose prose-xl mt-10 max-w-none">
           {children}
         </article>
+        <Comment />
       </main>
     </Layout>
   );
