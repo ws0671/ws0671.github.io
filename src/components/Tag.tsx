@@ -16,11 +16,8 @@ export default function Tag() {
   return (
     <ul>
       {data.allMdx.group.map((file, idx) => (
-        <Link to={`/tags/${kebabCase(file.fieldValue)}/`}>
-          <li
-            key={idx}
-            className="mx-2 my-1 inline-block rounded-3xl border border-gray-300 p-2"
-          >
+        <Link key={idx} to={`/tags/${kebabCase(file.fieldValue)}/`}>
+          <li className="mx-2 my-1 inline-block rounded-3xl border border-gray-300 p-2">
             {file.fieldValue} {file.totalCount}
           </li>
         </Link>

@@ -14,5 +14,5 @@ export default function Comment() {
 
     commentRef.current?.appendChild(script);
   }, []);
-  return <div ref={commentRef} />;
+  return <div className="py-10" ref={commentRef} />;
 }

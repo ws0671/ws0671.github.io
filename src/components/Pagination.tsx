@@ -11,9 +11,7 @@ export default function Pagination({
   numPages,
   location,
 }: IPaginationProps) {
-  console.log(location);
   const urlNumber = +location.pathname.slice(-2, -1) || 0;
-  console.log(urlNumber);
 
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;

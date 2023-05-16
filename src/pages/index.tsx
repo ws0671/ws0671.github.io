@@ -7,15 +7,18 @@ import kebabCase from "lodash/kebabCase";
 import Tag from "../components/Tag";
 import Pagination from "../components/Pagination";
 
-export default function IndexPage({ data,location }: PageProps<Queries.BlogPostsQuery>) {
+export default function IndexPage({
+  data,
+  location,
+}: PageProps<Queries.BlogPostsQuery>) {
   const posts = data.allMdx.nodes;
   const postsPerPage = 6;
   const numPages = Math.ceil(posts.length / postsPerPage);
   const currentPage = 1;
   return (
     <Layout>
-      <main className="m-auto flex w-[80%]">
-        <div className="relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-['']">
+      <main className="m-auto flex w-[80%]  max-sm:flex-col">
+        <div className=" relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-[''] max-sm:w-full max-sm:pb-10 max-sm:after:from-transparent">
           <Tag />
         </div>
         <div className="w-[80%] pl-10">
@@ -40,7 +43,11 @@ export default function IndexPage({ data,location }: PageProps<Queries.BlogPosts
               </div>
             ))
             .slice(0, 6)}
-          <Pagination location={location} currentPage={currentPage} numPages={numPages} />
+          <Pagination
+            location={location}
+            currentPage={currentPage}
+            numPages={numPages}
+          />
         </div>
       </main>
     </Layout>
