@@ -39,5 +39,6 @@
     "prettier-plugin-tailwindcss": "^0.2.8",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4"
-  }
+  },
+  "homepage": "https://ws0671.github.io/ws0671.github.io"
 }
