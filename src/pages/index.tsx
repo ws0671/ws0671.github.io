@@ -17,8 +17,8 @@ export default function IndexPage({
   const currentPage = 1;
   return (
     <Layout>
-      <main className="m-auto flex w-[80%]  max-sm:flex-col">
-        <div className=" relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-[''] max-sm:w-full max-sm:pb-10 max-sm:after:from-transparent">
+      <main className="m-auto flex w-[80%]  max-md:flex-col">
+        <div className=" relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-[''] max-md:w-full max-md:pb-10 max-md:after:from-transparent">
           <Tag />
         </div>
         <div className="w-[80%] pl-10">
