@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
-import kebabCase from "lodash/kebabCase";
+import kebabCase  from "lodash/kebabCase";
 
 export default function Tag() {
   const data = useStaticQuery<Queries.BlogTagsQuery>(graphql`

@@ -3,7 +3,6 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Link, graphql, PageProps } from "gatsby";
 import Seo from "../components/Seo";
 import Layout from "../components/Layout";
-import kebabCase from "lodash/kebabCase";
 import Tag from "../components/Tag";
 import Pagination from "../components/Pagination";
 
