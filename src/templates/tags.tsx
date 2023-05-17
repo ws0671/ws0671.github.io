@@ -66,14 +66,13 @@ export const pageQuery = graphql`
     ) {
       totalCount
       nodes {
-        excerpt(pruneLength: 10)
+        excerpt(pruneLength: 20)
         frontmatter {
           title
           tags
           date(formatString: "YYYY.MM.DD")
           author
           slug
-          headerImage
         }
         id
       }
