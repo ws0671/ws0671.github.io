@@ -18,18 +18,18 @@
 1페이지에 6개의 글이 들어간다. 페이지별로 구분된다.
 | Pagination |
 |:-------------------------------:|
-|<img src='./docs/pagination.gif'>|
+|<img src='./docs/pagination.gif' width='450'>|
 
 ### 태그
 
 글 각각의 태그가 있다. 이 태그별로 글을 모아볼 수 있다.
 | Tags |
 |:-------------------------------:|
-|<img src='./docs/tags.gif'>|
+|<img src='./docs/tags.gif' width='450'>|
 
 ### 반응형
 
 화면의 크기에 따라 navbar와 content의 형태가 변환된다.
 | Responsive |
 |:-------------------------------:|
-|<img src='./docs/responsive.gif'>|
+|<img src='./docs/responsive.gif' width='450'>|
