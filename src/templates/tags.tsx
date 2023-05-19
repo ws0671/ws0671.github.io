@@ -19,8 +19,8 @@ export default function Tags({
   return (
     <div>
       <Layout>
-        <main className="m-auto flex w-[80%]">
-          <div className=" relative w-[20%] after:absolute after:right-0 after:after:block after:h-[540px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-['']">
+        <main className="m-auto flex w-[80%]  max-md:flex-col">
+          <div className=" relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-[''] max-md:w-full max-md:pb-10 max-md:after:from-transparent">
             <Tag />
           </div>
           <div className=" w-[80%] pl-10">
