@@ -1,14 +1,38 @@
 import React from "react";
-import { graphql, PageProps, Link } from "gatsby";
+import { graphql, PageProps, Link, useStaticQuery } from "gatsby";
 import Layout from "../components/Layout";
 import Tag from "../components/Tag";
 import Pagination from "../components/Pagination";
 export default function BlogList({
-  data,
   pageContext,
   location,
 }: PageProps<Queries.BlogListQuery>) {
   const { currentPage, numPages } = pageContext;
+  const data = useStaticQuery(graphql`
+    query BlogList($skip: Int, $limit: Int) {
+      allMdx(
+        sort: { frontmatter: { date: DESC } }
+        limit: $limit
+        skip: $skip
+      ) {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
+          totalCount
+        }
+        nodes {
+          excerpt(pruneLength: 20)
+          frontmatter {
+            title
+            tags
+            date(formatString: "YYYY.MM.DD")
+            author
+            slug
+          }
+          id
+        }
+      }
+    }
+  `);
 
   return (
     <Layout>
@@ -50,36 +74,21 @@ export default function BlogList({
 // export const blogListQuery = graphql`
 //   query BlogList($skip: Int!, $limit: Int!) {
 //     allMdx(sort: { frontmatter: { date: DESC } }, limit: $limit, skip: $skip) {
-//       edges {
-//         node {
-//           frontmatter {
-//             title
-//             slug
-//           }
+//       group(field: { frontmatter: { tags: SELECT } }) {
+//         fieldValue
+//         totalCount
+//       }
+//       nodes {
+//         excerpt(pruneLength: 20)
+//         frontmatter {
+//           title
+//           tags
+//           date(formatString: "YYYY.MM.DD")
+//           author
+//           slug
 //         }
+//         id
 //       }
 //     }
 //   }
 // `;
-
-export const blogListQuery = graphql`
-  query BlogList($skip: Int!, $limit: Int!) {
-    allMdx(sort: { frontmatter: { date: DESC } }, limit: $limit, skip: $skip) {
-      group(field: { frontmatter: { tags: SELECT } }) {
-        fieldValue
-        totalCount
-      }
-      nodes {
-        excerpt(pruneLength: 20)
-        frontmatter {
-          title
-          tags
-          date(formatString: "YYYY.MM.DD")
-          author
-          slug
-        }
-        id
-      }
-    }
-  }
-`;
