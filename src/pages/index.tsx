@@ -16,11 +16,11 @@ export default function IndexPage({
   const currentPage = 1;
   return (
     <Layout>
-      <main className="m-auto flex w-[80%]  max-md:flex-col">
+      <main className="m-auto flex w-[80%] max-md:w-[90%] max-md:flex-col">
         <div className=" relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-[''] max-md:w-full max-md:pb-10 max-md:after:from-transparent">
           <Tag />
         </div>
-        <div className="w-[80%] pl-10">
+        <div className="pl-10 max-md:pl-0">
           {data.allMdx.nodes
             .map((file) => (
               <div className="mb-10" key={file.id}>
@@ -30,7 +30,7 @@ export default function IndexPage({
                     {file.frontmatter?.tags?.toUpperCase()}
                   </span>
                 </div>
-                <div className="mb-6 text-4xl font-bold ">
+                <div className="mb-6 text-4xl font-bold max-md:text-3xl ">
                   <Link
                     className="border-black hover:border-b"
                     to={`/blog/${file.frontmatter?.slug}`}
@@ -38,7 +38,7 @@ export default function IndexPage({
                     {file.frontmatter?.title}
                   </Link>
                 </div>
-                <div className="text-xl">{file.excerpt}</div>
+                <div className="text-xl max-md:text-base">{file.excerpt}</div>
               </div>
             ))
             .slice(0, 6)}

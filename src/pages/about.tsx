@@ -6,14 +6,14 @@ import Tag from "../components/Tag";
 export default function About() {
   return (
     <Layout>
-      <main className="m-auto flex w-[80%]  max-md:flex-col">
+      <main className="m-auto flex w-[80%] max-md:w-[90%] max-md:flex-col">
         <div className=" relative w-[20%] after:absolute after:right-0 after:top-0 after:block after:h-[650px] after:w-0.5 after:bg-gradient-to-b after:from-[#e6e6e6] after:to-[#fff] after:content-[''] max-md:w-full max-md:pb-10 max-md:after:from-transparent">
           <Tag />
         </div>
 
-        <div className=" w-[80%] pl-10">
-          <h1 className="mb-10 text-6xl font-bold">About</h1>
-          <p className="text-xl"> 안녕하세요! 이곳은 About page입니다.</p>
+        <div className="pl-10 max-md:pl-0">
+        <div className="mb-6 text-4xl font-bold max-md:text-3xl ">About</div>
+        <div className="max-md:text-base text-xl"> 안녕하세요! 이곳은 About page입니다.</div>
         </div>
       </main>
     </Layout>

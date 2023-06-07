@@ -13,12 +13,14 @@ interface IBlogPostProps {
 export default function BlogPost({ data, children }: IBlogPostProps) {
   return (
     <Layout>
-      <main className="mx-auto w-[60vw]">
-        <h1 className="text-6xl font-bold">{data.mdx?.frontmatter?.title}</h1>
+      <main className="mx-auto w-[70vw] max-md:w-[85vw]">
+        <h1 className="text-6xl font-bold max-md:text-4xl">
+          {data.mdx?.frontmatter?.title}
+        </h1>
         <h3 className="mt-10 text-lg text-gray-400">
           {data.mdx?.frontmatter?.date}
         </h3>
-        <article className="prose prose-xl mt-10 max-w-none">
+        <article className="prose prose-xl mt-10 max-w-none max-md:prose">
           {children}
         </article>
         <Comment />
@@ -33,7 +35,7 @@ export const query = graphql`
       frontmatter {
         author
         tags
-        
+
         date(formatString: "YYYY.MM.DD")
         title
         slug
