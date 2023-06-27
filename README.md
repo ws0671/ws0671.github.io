@@ -6,6 +6,7 @@
 - React
 - TailwindCSS
 - TypeScript
+- graphql
 
 ## 와이어프레임
 
